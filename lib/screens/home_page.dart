@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_ui/models/product.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -8,12 +9,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _current = 0;
-  List imgList = [
+  /*List imgList = [
     'https://images.stockx.com/images/Anti-Social-Social-Club-Kkoch-Hoodie-Black.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1611841873',
     'http://www.bambistore.com.tr/Uploads/UrunResimleri/buyuk/beyazsiyah-kadin-sneakers-l0512438309-e2fe.jpg',
     'https://cdn-images.farfetch-contents.com/15/60/02/30/15600230_29200357_300.jpg',
     'https://ae01.alicdn.com/kf/HTB1wq10RkPoK1RjSZKbq6x1IXXaJ/Bahar-fener-kollu-i-ek-nak-rg-kazak-h-rka-sonbahar-tiki-tarz-Mori-k-z.jpg_q50.jpg',
-  ];
+  ];*/
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                       });
                     },
                   ),
-                  items: imgList.map((imgUrl) {
+                  items: products.map((product) {
                     return Builder(
                       builder: (BuildContext context) {
                         return ClipRRect(
@@ -128,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(20),
                                       child: Image.network(
-                                        imgUrl,
+                                       product.photoUrl,
                                         fit: BoxFit.fill,
                                       ),
                                     ),
@@ -195,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                                   children: [
                                     Expanded(
                                       child: Text(
-                                        'Anti Social Club Hoodie',
+                                       product.title,
                                         style: TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.w700),
@@ -204,7 +205,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                     SizedBox(width:5),
                                     Text(
-                                      '\$60',
+                                      '\$'+product.cost.toString(),
                                       style: TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.w700),
@@ -220,7 +221,7 @@ class _HomePageState extends State<HomePage> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      'Long 3/4 sleevs, sweartshirt',
+                                      product.subTitle,
                                       style: TextStyle(
                                           color: Color(0xff6A6A6A),
                                           fontSize: 12),
@@ -237,8 +238,8 @@ class _HomePageState extends State<HomePage> {
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: imgList.map((url) {
-                                  int index = imgList.indexOf(url);
+                                children: products.map((url) {
+                                  int index = products.indexOf(url);
                                   return Container(
                                     width: 8.0,
                                     height: 8.0,

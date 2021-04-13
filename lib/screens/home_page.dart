@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_ui/models/product.dart';
+import 'package:shop_ui/widgets/divider.dart';
 import 'package:shop_ui/widgets/middle_field_card.dart';
 import 'package:shop_ui/widgets/product_card.dart';
 
@@ -71,13 +72,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 //divider
-                Container(
-                  margin:
-                      EdgeInsets.only(top: 20, bottom: 20, right: 20, left: 20),
-                  height: 2,
-                  width: double.infinity,
-                  color: Colors.grey[350],
-                ),
+                divider(),
                 //middle field
                 MiddleFieldCard(),
                 //

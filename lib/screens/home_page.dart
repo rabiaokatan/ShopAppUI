@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_ui/models/product.dart';
+import 'package:shop_ui/screens/product_detail_page.dart';
 import 'package:shop_ui/widgets/divider.dart';
 import 'package:shop_ui/widgets/middle_field_card.dart';
 import 'package:shop_ui/widgets/product_card.dart';
@@ -75,6 +76,7 @@ class _HomePageState extends State<HomePage> {
                 divider(),
                 //middle field
                 MiddleFieldCard(),
+              
                 //
                 Padding(
                   padding: const EdgeInsets.only(left: 20),
@@ -88,11 +90,11 @@ class _HomePageState extends State<HomePage> {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemCount: youMayLikeProducts.length,
-                    itemBuilder: (BuildContext context, int index) =>  ProductCard(
+                    itemBuilder: (BuildContext context, int index) =>
+                        ProductCard(
                             title: youMayLikeProducts[index].title,
                             subTitle: youMayLikeProducts[index].subTitle,
                             url: youMayLikeProducts[index].photoUrl),
-                    
                   ),
                 ),
               ],

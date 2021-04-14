@@ -13,7 +13,6 @@ class ProductDetailPage extends StatefulWidget {
 class _ProductDetailPageState extends State<ProductDetailPage> {
   @override
   Widget build(BuildContext context) {
-    var product;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -29,36 +28,35 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         height: 375,
                       ),
                       Container(
-                        margin: EdgeInsets.symmetric(horizontal: 10),
+                        // margin: EdgeInsets.symmetric(horizontal: 10),
                         height: 355,
                         width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(30),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                            ),
-                          ],
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Image.network(
-                            product.photoUrl,
-                            fit: BoxFit.fill,
-                          ),
+                        child: Image.network(
+                          widget.product.photoUrl,
+                          fit: BoxFit.cover,
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(right: 34, top: 14),
+                        padding: const EdgeInsets.only(right: 34, top: 34),
                         child: Align(
                           alignment: Alignment.topRight,
-                          child:
-                              Icon(Icons.favorite_border, color: Colors.black),
+                          child: GestureDetector(
+                            onTap: () => Navigator.pop(context),
+                            child: Container(
+                              height: 28,
+                              width: 28,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(35),
+                                color: Colors.black.withOpacity(0.4),
+                              ),
+                              alignment: Alignment.center,
+                              child: Icon(Icons.close_rounded,
+                                  color: Colors.white),
+                            ),
+                          ),
                         ),
                       ),
+
                       //shopping icon
                       Positioned(
                         top: 320,
@@ -73,8 +71,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                             borderRadius: BorderRadius.circular(35),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 3,
+                                color: Colors.blue[900].withOpacity(0.5),
+                                spreadRadius: 5,
                                 blurRadius: 5,
                               ),
                             ],
@@ -82,6 +80,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                           alignment: Alignment.center,
                           child: Icon(Icons.shopping_bag, color: Colors.white),
                         ),
+                      ),
+
+                      Positioned(
+                        top: 300,
+                        left: 20,
+                        child: IconButton(
+                            icon: Icon(Icons.favorite_border),
+                            onPressed: () {}),
                       ),
                     ],
                   ),
@@ -143,38 +149,53 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 ],
               ),
               SizedBox(height: 35),
-              Row(
-                children: [
-                  Image.network(
-                    'https://lh3.googleusercontent.com/proxy/uRjxZ1jfCoVxyM-ezvLdr7BLw9ppJUUgJM40rSmsQylomvBR1PVvXhQz0neZjdLxAITMpKycxgQMjzKrDD8uLIVOrhH8CQdFOhk9Ng',
-                    width: 26,
-                    height: 26,
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                    '100% Cotton',
-                    style: TextStyle(fontSize: 12),
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(right: 20, left: 20),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/images/fabric.png',
+                      height: 26,
+                      width: 26,
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      '100% Cotton',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ],
+                ),
               ),
               divider(),
-              Row(
-                children: [
-                  Icon(Icons.thumb_up),
-                  SizedBox(width: 10),
-                  Text(
-                    '4.5/5',
-                    style: TextStyle(fontSize: 12),
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(right: 20, left: 20),
+                child: Row(
+                  children: [
+                    Icon(Icons.thumb_up),
+                    SizedBox(width: 10),
+                    Text(
+                      '4.5/5',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ],
+                ),
               ),
               divider(),
-              Text(
-                  'ksdksdklsdladsl aksdkasdk kandslkasld kansdkasd naldjloasd'),
+              Padding(
+                padding: const EdgeInsets.only(right: 20, left: 20),
+                child: Text(
+                  'ksdksdklsdladsl aksdkasdk kandslkasld kansdkasd naldjloasd',
+                ),
+              ),
+              SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.only(left: 20),
-                child:
-                    Text('More from Wrangler', style: TextStyle(fontSize: 20)),
+                child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'More from Wrangler',
+                      style: TextStyle(fontSize: 20),
+                    )),
               ),
               SizedBox(height: 15),
               SizedBox(
@@ -184,10 +205,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemCount: youMayLikeProducts.length,
-                  itemBuilder: (BuildContext context, int index) => ProductCard(
-                      title: youMayLikeProducts[index].title,
-                      subTitle: youMayLikeProducts[index].subTitle,
-                      url: youMayLikeProducts[index].photoUrl),
+                  itemBuilder: (BuildContext context, int index) =>
+                      youMayLikeProducts[index].id != widget.product.id
+                          ? ProductCard(
+                              title: youMayLikeProducts[index].title,
+                              subTitle: youMayLikeProducts[index].subTitle,
+                              url: youMayLikeProducts[index].photoUrl,
+                            )
+                          : Container(),
                 ),
               ),
             ],

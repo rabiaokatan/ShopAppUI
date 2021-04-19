@@ -30,7 +30,7 @@ List<Product> products = [
     cost: 120,
     subTitle: 'Comfortable sneakers',
     photoUrl:
-        'http://www.bambistore.com.tr/Uploads/UrunResimleri/buyuk/beyazsiyah-kadin-sneakers-l0512438309-e2fe.jpg',
+        'http://www.bambistore.com.tr/Uploads/UrunResimleri/buyuk/beyazpudra-kadin-sneaker-093ca-.jpg',
   ),
   Product(
     id: 2,
@@ -65,7 +65,7 @@ List<Product> youMayLikeProducts = [
     cost: 120,
     subTitle: 'Comfortable sneakers',
     photoUrl:
-        'http://www.bambistore.com.tr/Uploads/UrunResimleri/buyuk/beyazsiyah-kadin-sneakers-l0512438309-e2fe.jpg',
+        'http://www.bambistore.com.tr/Uploads/UrunResimleri/buyuk/beyazpudra-kadin-sneaker-093ca-.jpg',
   ),
   Product(
     id: 2,

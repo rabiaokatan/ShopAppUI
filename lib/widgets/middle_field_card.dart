@@ -64,7 +64,7 @@ class _MiddleFieldCardState extends State<MiddleFieldCard> {
                             borderRadius: BorderRadius.circular(20),
                             child: Image.network(
                               product.photoUrl,
-                              fit: BoxFit.fill,
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'screens/cart_screen.dart';
 import 'screens/home_page.dart';
+import 'screens/search_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,7 +33,7 @@ class _NavigationBarState extends State<NavigationBar> {
     HomePage(), //0
     HomePage(), //todo
     CartScreen(),//2
-    HomePage(), //todo
+    SearchScreen(),
   ];
   @override
   Widget build(BuildContext context) {

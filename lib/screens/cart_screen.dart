@@ -9,10 +9,9 @@ class CartScreen extends StatefulWidget {
   _CartScreenState createState() => _CartScreenState();
 }
 
-
 class _CartScreenState extends State<CartScreen> {
   double totalPrice = 0;
-  
+
   total() {
     youMayLikeProducts.forEach((element) {
       totalPrice = totalPrice + element.cost;
@@ -51,19 +50,7 @@ class _CartScreenState extends State<CartScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Container(
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(35),
-                        color: Color(0xffFFB701).withOpacity(0.5),
-                      ),
-                      alignment: Alignment.center,
-                      child: Icon(
-                        Icons.card_giftcard, //gift_icon.png gelecek buraya
-                        color: Color(0xff2f69f8),
-                      ),
-                    ),
+                    Image.asset('assets/images/gift_icon.png'),
                     Padding(
                       padding: const EdgeInsets.only(top: 20),
                       child: Column(

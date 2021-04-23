@@ -9,13 +9,28 @@ class CartScreen extends StatefulWidget {
   _CartScreenState createState() => _CartScreenState();
 }
 
+
 class _CartScreenState extends State<CartScreen> {
-  double totalPrice=0;
+  double totalPrice = 0;
+  
+  total() {
+    youMayLikeProducts.forEach((element) {
+      totalPrice = totalPrice + element.cost;
+    });
+  }
+
+  @override
+  void initState() {
+    total();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
+        physics: ScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.only(top: 20),
           child: Column(
@@ -85,19 +100,42 @@ class _CartScreenState extends State<CartScreen> {
               ),
 
               //middle field
-              Column(
-                children: youMayLikeProducts.map((e) {
-                  totalPrice+=e.cost;
-                  return cartPageContainer(
-                      title: e.title,
-                      brand: e.brand,
-                      photoUrl: e.photoUrl,
-                      size: e.size,
-                      quantity: e.quantity,
-                      color: e.color,
-                      cost: e.cost);
-                }).toList(),
-              ),
+              ListView.builder(
+                  physics: ClampingScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: youMayLikeProducts.length,
+                  itemBuilder: (context, index) {
+                    Product item = youMayLikeProducts[index];
+                    return Dismissible(
+                      key: Key(item.id.toString()),
+                      background: Container(
+                          color: Colors.red,
+                          alignment: AlignmentDirectional.centerEnd,
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 20),
+                            child: Icon(
+                              Icons.delete_forever,
+                              color: Colors.white,
+                              size: 30,
+                            ),
+                          )),
+                      onDismissed: (direction) {
+                        setState(() {
+                          youMayLikeProducts.removeAt(index);
+                          totalPrice -= item.cost;
+                        });
+                      },
+                      child: cartPageContainer(
+                        title: item.title,
+                        brand: item.brand,
+                        photoUrl: item.photoUrl,
+                        size: item.size,
+                        quantity: item.quantity,
+                        color: item.color,
+                        cost: item.cost,
+                      ),
+                    );
+                  }),
 
               SizedBox(height: 50),
               divider(),
@@ -131,9 +169,10 @@ class _CartScreenState extends State<CartScreen> {
                         ),
                         alignment: Alignment.center,
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal:22, vertical:12),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 22, vertical: 12),
                           child: Text(
-                            '\$ '+totalPrice.toString(),
+                            '\$ ' + totalPrice.toString(),
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.w700,

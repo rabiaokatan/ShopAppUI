@@ -43,7 +43,7 @@ List<Product> products = [
     cost: 120,
     subTitle: 'Comfortable sneakers',
     photoUrl:
-        'http://www.bambistore.com.tr/Uploads/UrunResimleri/buyuk/beyazpudra-kadin-sneaker-093ca-.jpg',
+        'http://www.elleshoes.com/Uploads/UrunResimleri/buyuk/jeraldo-kadin-spor-ayakkabi-pembe-kombin-b68c.jpg',
     brand: 'Nike',
     size: '38',
     color:Colors.pink,
@@ -94,7 +94,7 @@ List<Product> youMayLikeProducts = [
     cost: 120,
     subTitle: 'Comfortable sneakers',
     photoUrl:
-        'http://www.bambistore.com.tr/Uploads/UrunResimleri/buyuk/beyazpudra-kadin-sneaker-093ca-.jpg',
+        'http://www.elleshoes.com/Uploads/UrunResimleri/buyuk/jeraldo-kadin-spor-ayakkabi-pembe-kombin-b68c.jpg',
     brand: 'Nike',
     size: '38',
     color:  Colors.pink,

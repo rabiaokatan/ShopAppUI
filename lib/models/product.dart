@@ -24,6 +24,7 @@ class Product {
   });
 }
 
+List<Product>shop=[];
 List<Product> products = [
   Product(
     id: 0,

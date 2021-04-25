@@ -3,7 +3,7 @@ import 'package:shop_ui/screens/checkout.dart';
 
 Widget footer({BuildContext context, double totalPrice, bool isCartPage}) {
   return Padding(
-    padding: const EdgeInsets.only(right: 20, left: 20),
+    padding: const EdgeInsets.only(right: 20, left: 20, bottom:20),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

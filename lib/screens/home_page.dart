@@ -47,6 +47,7 @@ class _HomePageState extends State<HomePage> {
                     itemCount: youMayLikeProducts.length,
                     itemBuilder: (BuildContext context, int index) =>
                         ProductCard(
+                          product:youMayLikeProducts[index] ,
                             title: youMayLikeProducts[index].title,
                             subTitle: youMayLikeProducts[index].subTitle,
                             url: youMayLikeProducts[index].photoUrl),

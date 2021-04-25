@@ -3,9 +3,9 @@ import 'package:shop_ui/widgets/checkout_page_container.dart';
 import 'package:shop_ui/widgets/divider.dart';
 import 'package:shop_ui/widgets/footer.dart';
 import 'package:shop_ui/widgets/header_widget.dart';
+import 'package:shop_ui/widgets/tabSlideChoose.dart';
 
 class Checkout extends StatefulWidget {
-
   double totalPrice;
 
   Checkout(this.totalPrice);
@@ -24,12 +24,17 @@ class _CheckoutState extends State<Checkout> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                headerWidget(text: 'Checkout'),
+                headerWidget(text: 'Checkout', isCheckoutPage: true, context: context),
 
-                SizedBox(height: 50),
-                //
-                //
-                ////
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 18, right: 18, bottom: 20),
+                  child: TabSlideChoose(
+                    ['Shipment', 'Payment', 'Summary'],
+                    (_) {},
+                  ),
+                ),
+
                 //middle field
                 Padding(
                   padding: const EdgeInsets.only(left: 20),
@@ -90,13 +95,15 @@ class _CheckoutState extends State<Checkout> {
 
                 SizedBox(height: 20),
 
-               checkoutPageContainer(isFree:true),
-               checkoutPageContainer(isFree:false),
+                checkoutPageContainer(isFree: true),
+                checkoutPageContainer(isFree: false),
 
-
-               //
-               divider(),
-               footer(context:context, totalPrice: widget.totalPrice, isCartPage: false),
+                //
+                divider(),
+                footer(
+                    context: context,
+                    totalPrice: widget.totalPrice,
+                    isCartPage: false),
               ],
             ),
           ),

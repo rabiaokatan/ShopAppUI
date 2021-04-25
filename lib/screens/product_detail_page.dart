@@ -78,7 +78,12 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                             ],
                           ),
                           alignment: Alignment.center,
-                          child: Icon(Icons.shopping_bag, color: Colors.white),
+                          child: IconButton(
+                            icon: Icon(Icons.shopping_bag, color: Colors.white),
+                            onPressed: () {
+                             shop.add(widget.product); 
+                            },
+                          ),
                         ),
                       ),
 

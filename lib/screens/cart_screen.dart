@@ -15,7 +15,7 @@ class _CartScreenState extends State<CartScreen> {
   double totalPrice = 0;
 
   total() {
-    youMayLikeProducts.forEach((element) {
+    shop.forEach((element) {
       totalPrice = totalPrice + element.cost;
     });
   }
@@ -92,9 +92,9 @@ class _CartScreenState extends State<CartScreen> {
               ListView.builder(
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: youMayLikeProducts.length,
+                  itemCount: shop.length,
                   itemBuilder: (context, index) {
-                    Product item = youMayLikeProducts[index];
+                    Product item = shop[index];
                     return Dismissible(
                       key: Key(item.id.toString()),
                       background: Container(
@@ -110,7 +110,7 @@ class _CartScreenState extends State<CartScreen> {
                           )),
                       onDismissed: (direction) {
                         setState(() {
-                          youMayLikeProducts.removeAt(index);
+                          shop.removeAt(index);
                           totalPrice -= item.cost;
                         });
                       },

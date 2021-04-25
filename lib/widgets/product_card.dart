@@ -46,7 +46,7 @@ class _ProductCardState extends State<ProductCard> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.network(
-                      widget.product.photoUrl,
+                      widget.url,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -66,7 +66,7 @@ class _ProductCardState extends State<ProductCard> {
             Container(
               width: 130,
               child: Text(
-                widget.product.title,
+                widget.title,
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
                 overflow: TextOverflow.ellipsis,
               ),
@@ -74,7 +74,7 @@ class _ProductCardState extends State<ProductCard> {
             Container(
               width: 130,
               child: Text(
-                widget.product.subTitle,
+                widget.subTitle,
                 style: TextStyle(
                   fontSize: 12,
                   color: Color(0xff6a6a6a),

@@ -189,7 +189,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               Padding(
                 padding: const EdgeInsets.only(right: 20, left: 20),
                 child: Text(
-                  'ksdksdklsdladsl aksdkasdk kandslkasld kansdkasd naldjloasd',
+                  '',
                 ),
               ),
               SizedBox(height: 15),
@@ -213,6 +213,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   itemBuilder: (BuildContext context, int index) =>
                       youMayLikeProducts[index].id != widget.product.id
                           ? ProductCard(
+                            product: widget.product,
                               title: youMayLikeProducts[index].title,
                               subTitle: youMayLikeProducts[index].subTitle,
                               url: youMayLikeProducts[index].photoUrl,

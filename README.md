@@ -1,16 +1,40 @@
-# shop_ui
+# Shop App UI
 
-A new Flutter project.
+This is a Flutter project.<br>
+UI design link: https://dribbble.com/shots/5408251-UI-shop-kit-freebie
 
-## Getting Started
+Installation:
 
-This project is a starting point for a Flutter application.
+`flutter pub get`
 
-A few resources to get you started if this is your first Flutter project:
+Usage:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+`flutter run`
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Images from project:
+
+<table>
+  <tr>
+    <td>Home Page:</td>
+     <td>Product Detail Page:</td>
+     <td>Cart Page:</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/rabiaokatan/ShopAppUI/blob/main/images/1.gif" width="300"></td>
+    <td><img src="https://github.com/rabiaokatan/ShopAppUI/blob/main/images/2.gif" width="300"></td>
+    <td><img src="https://github.com/rabiaokatan/ShopAppUI/blob/main/images/3.gif" width="300"></td>
+  </tr>
+ </table>
+ <br/>
+<table>
+  <tr>
+    <td>Checkout Page:</td>
+     <td>Search Page:</td>
+     <!--<td></td>-->
+  </tr>
+  <tr>
+    <td><img src="https://github.com/rabiaokatan/ShopAppUI/blob/main/images/4.gif" width="300"></td>
+    <td><img src="https://github.com/rabiaokatan/ShopAppUI/blob/main/images/5.gif" width="300"></td>
+     <!--<td></td>-->
+  </tr>
+ </table>
